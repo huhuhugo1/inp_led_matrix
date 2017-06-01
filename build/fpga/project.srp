@@ -1,0 +1,329 @@
+Release 14.4 - xst P.49d (lin64)
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+--> 
+Parameter TMPDIR set to build/fpga
+Parameter xsthdpdir set to build/fpga
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.05 secs
+ 
+--> 
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "build/fpga/project.prj"
+Input Format                       : mixed
+
+---- Target Parameters
+Output File Name                   : "build/fpga/project.ngc"
+Output Format                      : NGC
+Target Device                      : xc3s50-4-pq208
+
+---- Source Options
+Top Module Name                    : ledc8x8
+
+---- General Options
+Optimization Goal                  : SPEED
+Optimization Effort                : 1
+Library Search Order               : build/fpga/project.lso
+RTL Output                         : yes
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling vhdl file "/tmp/xkubis15/build.8052/apps/games/xkubis15/fpga/ledc8x8.vhd" in Library work.
+Entity <ledc8x8> compiled.
+Entity <ledc8x8> (Architecture <main>) compiled.
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for entity <ledc8x8> in library <work> (architecture <main>).
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing Entity <ledc8x8> in library <work> (Architecture <main>).
+Entity <ledc8x8> analyzed. Unit <ledc8x8> generated.
+
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <ledc8x8>.
+    Related source file is "/tmp/xkubis15/build.8052/apps/games/xkubis15/fpga/ledc8x8.vhd".
+    Found 1-bit register for signal <char_select>.
+    Found 23-bit up counter for signal <cnt_1hz>.
+    Found 8-bit up counter for signal <cnt_256>.
+    Found 1-bit register for signal <next_row_req>.
+    Found 8-bit register for signal <sig_row>.
+    Summary:
+	inferred   2 Counter(s).
+	inferred  10 D-type flip-flop(s).
+Unit <ledc8x8> synthesized.
+
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Counters                                             : 2
+ 23-bit up counter                                     : 1
+ 8-bit up counter                                      : 1
+# Registers                                            : 3
+ 1-bit register                                        : 2
+ 8-bit register                                        : 1
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# Counters                                             : 2
+ 23-bit up counter                                     : 1
+ 8-bit up counter                                      : 1
+# Registers                                            : 10
+ Flip-Flops                                            : 10
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+
+Optimizing unit <ledc8x8> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 41
+ Flip-Flops                                            : 41
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : build/fpga/project.ngr
+Top Level Output File Name         : build/fpga/project.ngc
+Output Format                      : NGC
+Optimization Goal                  : SPEED
+Keep Hierarchy                     : no
+
+Design Statistics
+# IOs                              : 18
+
+Cell Usage :
+# BELS                             : 148
+#      GND                         : 1
+#      INV                         : 4
+#      LUT1                        : 29
+#      LUT2                        : 25
+#      LUT3                        : 10
+#      LUT4                        : 10
+#      LUT4_D                      : 2
+#      MUXCY                       : 35
+#      VCC                         : 1
+#      XORCY                       : 31
+# FlipFlops/Latches                : 41
+#      FDC                         : 31
+#      FDE                         : 10
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 17
+#      IBUF                        : 1
+#      OBUF                        : 16
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 3s50pq208-4 
+
+ Number of Slices:                       43  out of    768     5%  
+ Number of Slice Flip Flops:             41  out of   1536     2%  
+ Number of 4 input LUTs:                 80  out of   1536     5%  
+ Number of IOs:                          18
+ Number of bonded IOBs:                  18  out of    124    14%  
+ Number of GCLKs:                         1  out of      8    12%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+SMCLK                              | BUFGP                  | 41    |
+-----------------------------------+------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+-----------------------------------+------------------------+-------+
+Control Signal                     | Buffer(FF name)        | Load  |
+-----------------------------------+------------------------+-------+
+RESET                              | IBUF                   | 31    |
+-----------------------------------+------------------------+-------+
+
+Timing Summary:
+---------------
+Speed Grade: -4
+
+   Minimum period: 7.492ns (Maximum Frequency: 133.476MHz)
+   Minimum input arrival time before clock: 4.973ns
+   Maximum output required time after clock: 9.121ns
+   Maximum combinational path delay: No path found
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'SMCLK'
+  Clock period: 7.492ns (frequency: 133.476MHz)
+  Total number of paths / destination ports: 953 / 50
+-------------------------------------------------------------------------
+Delay:               7.492ns (Levels of Logic = 8)
+  Source:            cnt_1hz_8 (FF)
+  Destination:       char_select (FF)
+  Source Clock:      SMCLK rising
+  Destination Clock: SMCLK rising
+
+  Data Path: cnt_1hz_8 to char_select
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC:C->Q              2   0.720   1.216  cnt_1hz_8 (cnt_1hz_8)
+     LUT3:I0->O            1   0.551   0.000  cnt_1hz_cmp_eq0000_wg_lut<0> (cnt_1hz_cmp_eq0000_wg_lut<0>)
+     MUXCY:S->O            1   0.500   0.000  cnt_1hz_cmp_eq0000_wg_cy<0> (cnt_1hz_cmp_eq0000_wg_cy<0>)
+     MUXCY:CI->O           1   0.064   0.000  cnt_1hz_cmp_eq0000_wg_cy<1> (cnt_1hz_cmp_eq0000_wg_cy<1>)
+     MUXCY:CI->O           1   0.064   0.000  cnt_1hz_cmp_eq0000_wg_cy<2> (cnt_1hz_cmp_eq0000_wg_cy<2>)
+     MUXCY:CI->O           1   0.064   0.000  cnt_1hz_cmp_eq0000_wg_cy<3> (cnt_1hz_cmp_eq0000_wg_cy<3>)
+     MUXCY:CI->O           1   0.064   0.000  cnt_1hz_cmp_eq0000_wg_cy<4> (cnt_1hz_cmp_eq0000_wg_cy<4>)
+     MUXCY:CI->O          24   0.303   1.992  cnt_1hz_cmp_eq0000_wg_cy<5> (cnt_1hz_cmp_eq0000)
+     LUT2:I1->O            1   0.551   0.801  char_select_and00001 (char_select_and0000)
+     FDE:CE                    0.602          char_select
+    ----------------------------------------
+    Total                      7.492ns (3.483ns logic, 4.009ns route)
+                                       (46.5% logic, 53.5% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'SMCLK'
+  Total number of paths / destination ports: 2 / 2
+-------------------------------------------------------------------------
+Offset:              4.973ns (Levels of Logic = 2)
+  Source:            RESET (PAD)
+  Destination:       char_select (FF)
+  Destination Clock: SMCLK rising
+
+  Data Path: RESET to char_select
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            33   0.821   2.198  RESET_IBUF (RESET_IBUF)
+     LUT2:I0->O            1   0.551   0.801  char_select_and00001 (char_select_and0000)
+     FDE:CE                    0.602          char_select
+    ----------------------------------------
+    Total                      4.973ns (1.974ns logic, 2.999ns route)
+                                       (39.7% logic, 60.3% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'SMCLK'
+  Total number of paths / destination ports: 31 / 14
+-------------------------------------------------------------------------
+Offset:              9.121ns (Levels of Logic = 2)
+  Source:            char_select (FF)
+  Destination:       LED<6> (PAD)
+  Source Clock:      SMCLK rising
+
+  Data Path: char_select to LED<6>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDE:C->Q              7   0.720   1.405  char_select (char_select)
+     LUT3:I0->O            1   0.551   0.801  LED<3>1 (LED_3_OBUF)
+     OBUF:I->O                 5.644          LED_3_OBUF (LED<3>)
+    ----------------------------------------
+    Total                      9.121ns (6.915ns logic, 2.206ns route)
+                                       (75.8% logic, 24.2% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 6.00 secs
+Total CPU time to Xst completion: 5.59 secs
+ 
+--> 
+
+
+Total memory usage is 505628 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    0 (   0 filtered)
+Number of infos    :    0 (   0 filtered)
+
